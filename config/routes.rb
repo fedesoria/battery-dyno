@@ -1,4 +1,8 @@
+
 Dynobattery::Application.routes.draw do |map|
+  
+  resources :users
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -24,7 +28,7 @@ Dynobattery::Application.routes.draw do |map|
   #       get :sold
   #     end
   #   end
-
+  match '/heroku', :to => RequestsCall
   # Sample resource route with sub-resources:
   #   resources :products do
   #     resources :comments, :sales
@@ -48,7 +52,7 @@ Dynobattery::Application.routes.draw do |map|
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => "welcome#index"
+  root :to => "users#index"
 
   # See how all your routes lay out with "rake routes"
 
