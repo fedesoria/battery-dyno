@@ -8,7 +8,7 @@ class TimeRequest
     @params = req.params
     
     if env["PATH_INFO"] =~ /^\/heroku_time/ && @params["id"]
-      requests = User.find(@params["id"]).requests.where(["date > ?",Time.now - 1.minute + 7.hours])
+      requests = User.find(@params["id"]).requests.where(["date > ?",Time.now - 1.minute])
       if requests.empty?
         [200, {"Content-Type" => "text/html"}, ["0"]]
       else  
