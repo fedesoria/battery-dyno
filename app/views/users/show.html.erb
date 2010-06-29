@@ -1,18 +1,73 @@
-<p>
-  <b>Name:</b>
-  <%= @user.name %>
-</p>
+<!-- top height of battery: 223px, red starts at: 20px -->
 
+
+
+
+<script type="text/javascript">
+//<![CDATA[
+setInterval(function() {
+  jQuery.ajax({
+    success:function(request){
+      var percentage = request/(1 * 1000);
+      jQuery("#time span").html(parseInt(request));
+      if(percentage > 1){
+        percentage = 1;
+      };
+      if(percentage > .80){
+        jQuery("#battery").addClass("red");
+      } else if(jQuery("#battery").hasClass("red")){
+        jQuery("#battery").removeClass("red");
+      };
+      percentage = (1 - percentage) * 223;
+      jQuery('#battery #center').css("height", percentage);
+    },
+    type:'get',
+    url:'/heroku_time?id=<%= @user.id %>'
+    })
+  }, 10 * 1000)
+//]]>
+</script>
+
+<% content_for :info do %>
 <p>
   <b>Account:</b>
   <%= @user.account %>
 </p>
 
-<p>
-  <b>Pass:</b>
-  <%= @user.pass %>
+<p id="time">
+  <b>Average Request Time:</b>
+  <span>0</span>ms
 </p>
+
+<p>
+  <b style="margin-right:12px;">Dynos:</b>
+  <span class="dynos">1
+  </span>
+  <a href="#" class="add_button">
+    <img src="/images/add_32.png" >
+  </a>
+</p>
+
+
+
+
 
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
+
+<% end %>
+
+<div id="battery" >
+    <div id="top_battery">
+      
+    </div>
+    <div id="center">
+      <div id="top">
+
+      </div>
+    </div>
+    <div id="bottom">
+    
+    </div>
+</div>

@@ -1,0 +1,219 @@
+/* =====================================================================
+* Filename: styles.css
+* Template: Website Error Pages
+* Author: Jarel Remick - http://www.jremick.com
+* Date Created: 08/18/2009
+* Media: Screen
+* ------
+* CSS Reset using "reset.css" from 960 framework package, derived from Eric Meyers.
+===================================================================== */
+
+/* FOR FIREFOX 3.5+, Safari and Opera 10 (IE has different requirements and needs .eot format) */
+@font-face { font-family: "Droid Custom"; src: url(/fonts/DroidSerif-Regular.ttf) format("truetype"); }  
+@font-face { font-family: "Droid Custom"; src: url(/fonts/DroidSerif-Bold.ttf) format("truetype"); font-weight: bold; }  
+
+/* Optional Background "bg-opt.jpg" */
+body { background-color: #888888; color: #646464; font: 13px Helvetica, Arial, sans-serif; line-height: 17px; }
+
+/* ============= LAYOUT ============= */
+#wrapper { width: 734px; margin: 50px auto 0; position: relative; }
+#bg-top { height: 31px; background: url(/images/container-top-bg.png) no-repeat; }
+#bg-bottom { height: 31px; background: url(/images/container-bottom-bg.png) no-repeat; }
+#contentWrap { background: url(/images/container-bg-repeat.png) repeat-y; padding: 14px 0; }
+#content { width: 700px; background: url(/images/content-gradient-bg.png) no-repeat; margin-bottom: -56px; position: relative; top: -28px; left: 17px; }
+
+#leftColumn { width: 240px; background: url(/images/divider-shadow.png) no-repeat right 0; position: relative; z-index: 1; }
+#rightColumn { width: 321px; background: url(/images/divider.gif) repeat-y; margin-left: -1px; }
+#leftColumn, #rightColumn { height: 380px; float: left; padding: 35px; }
+
+#logo { margin: 0 auto; margin-top: -9px; display: block; }
+
+/* ============= MISC ELEMENTS ============= */
+#nav { margin: 20px 0 0 20px; }
+#nav ul { list-style: none; font-weight: normal; padding: 15px 0 10px 25px; margin-left: 65px; background: url(/images/menu-divider.png) no-repeat; }
+#nav li { height: 34px; padding-left: 35px; opacity: .5; cursor: pointer; }
+#nav li:hover { opacity: 1; }
+#nav li a { font-size: 16px; text-decoration: none; color: #666; line-height: 26px; }
+#nav li:hover a { color: #a62e2e; }
+
+#nav li.home { background: url(/images/icons/home-icon.png) no-repeat; }
+#nav li.about { background: url(/images/icons/about-icon.png) no-repeat; }
+#nav li.contact { background: url(/images/icons/contact-icon.png) no-repeat; }
+
+#nav span { display: block; height: 50px; float: left; padding-top: 50px; font: 16px  "Droid Custom", Georgia, Garamond, serif; text-align: right; font-weight: normal; }
+
+/*form { width: 210px; margin: 25px auto 0; }*/
+/*input { float: left; }
+input[type='text'] { 
+  width: 158px;
+  height: 17px;
+  border: 0;
+  padding: 8px 11px 5px;
+  color: #666;
+  background: url(/images/search-input-bg.png) no-repeat;
+}
+input[type='submit'] {
+  width: 28px;
+  height: 29px;
+  border: 0;
+  cursor: pointer;
+  background: url(/images/search-btn.png) no-repeat;
+}
+input[type='submit']:hover { background-position: 0 -30px; }*/
+
+/* CLOSE BUTTON - USED WITH JAVASCRIPT POPUP VERSION */
+#close {
+	width: 60px;
+	height: 24px;
+	display: block;
+	position: absolute;
+	bottom: 18px;
+	right: 20px;
+	background: url(/images/close-btn.png) no-repeat right 0;
+	line-height: 26px;
+	text-decoration: none;
+	color: #999;
+	cursor: pointer;
+}
+#close:hover { background-position: right -24px; color: #666; }
+/* END CLOSE BUTTON */
+
+.clear { clear: both; }
+
+/* ============= FONTS ============= */
+/* === Headings === */
+h1,h2,h3,h4,h5,h6 { font-family: "Droid Custom", Georgia, Garamond, serif; font-weight: normal; color: #2d2d2d; }
+
+/* BEGIN STYLES FOR THE LARGE ERROR MESSAGE */
+h1 {
+	font-size: 128px;
+	line-height: 128px;
+	letter-spacing: -5px;
+	color: #000;
+	width: 240px;
+	position: absolute;
+	top: 265px;
+	opacity: .04;
+}
+h1:hover { opacity: .1; }
+h1 span {
+	font-size: 28px;
+	line-height: 28px;	
+	font-weight: bold;
+	text-align: right;
+	text-transform: uppercase;
+	letter-spacing: -1px;
+	display: block;
+	margin-top: -20px;
+}
+/* END STYLES FOR THE LARGE ERROR MESSAGE */
+
+h2 { font-size: 27px; margin: 7px 0 20px; line-height: 31px; color: #454545; letter-spacing: -1px; }
+h3 { font-size: 18px; line-height: 1; margin-bottom: 1em; color: #616161; }
+h4 { font-size: 14px; line-height: 17px; margin-bottom: 1em; color: #616161; }
+h3.regular,
+h4.regular { font-family: Helvetica, Arial, sans-serif; }
+
+/* === Text elements === */
+p           { margin: 0 0 1em; font-size: 17px;}
+a:focus, 
+a:hover     { color: #3b4761; text-decoration: none; }
+a           { color: #a62e2e; text-decoration: underline; }
+strong      { font-weight: bold; }
+em		    { font-style: italic; }
+
+/* === Lists === */
+ul, ol      { margin: 0 20px 20px 40px; font-weight: bold; color: #a62e2e; line-height: 20px; }
+ol span		{ font-weight: normal; color: #646464; }
+
+ul          { list-style-type: disc; }
+ol          { list-style-type: decimal; }
+
+
+
+.dynos {
+  font-size: 36px;
+  vertical-align: baseline;
+}
+
+
+.add_button img {
+  margin-left: -5px;
+  vertical-align: bottom;
+}
+
+#battery {
+  background: transparent url("/images/battery/battery2.png") no-repeat;
+  width: 350px;
+  height: 445px;
+  position: absolute;
+  padding-left: 17px;
+  margin-left: -18px;
+  margin-top: -26px;
+}
+
+#information {
+  float:left;
+  width: 300px;
+  margin-left: 290px;
+  margin-top: 50px;
+}
+
+#battery #top_battery{
+  background:url("/images/battery/top_battery.png") no-repeat scroll 0 0 transparent;
+  height:93px;
+  left:81px;
+  position:inherit;
+  top:9px;
+  width:211px;
+  z-index: 9999;
+}
+
+#battery #bottom{
+  background:url("/images/battery/green_bottom2.png") no-repeat scroll 0 0 transparent;
+  bottom:77px;
+  height:40px;
+  left:83px;
+  opacity:0.8;
+  position:inherit;
+  width:205px;
+  opacity: 0.8;
+  -moz-opacity: 0.8;
+  filter:alpha(opacity=80);
+}
+
+#battery #center{
+  background:url("/images/battery/green_repeat2.png") repeat-y scroll 0 0 transparent;
+  bottom:117px;
+  height:100px;
+  left:83px;
+  position:inherit;
+  width:205px;
+  opacity: 0.8;
+  -moz-opacity: 0.8;
+  filter:alpha(opacity=80);
+}
+
+#battery #center #top{
+  background:url("/images/battery/green_top2.png") no-repeat scroll 0 0 transparent;
+  height:101px;
+  position:inherit;
+  top:-75px;
+  width:208px;
+}
+
+#battery.red #bottom {
+  background: transparent url("/images/battery/red_bottom2.png") no-repeat;
+}
+#battery.red #center {
+  background: transparent url("/images/battery/red_repeat2.png") repeat-y;
+}
+#battery.red #center #top {
+  background: transparent url("/images/battery/red_top2.png") no-repeat;
+}
+
+
+
+#dynos {
+  margin-top: 30px;
+}

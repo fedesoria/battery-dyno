@@ -29,6 +29,9 @@ Dynobattery::Application.routes.draw do |map|
   #     end
   #   end
   match '/heroku', :to => RequestsCall
+  
+  match '/heroku_time', :to => TimeRequest
+  
   # Sample resource route with sub-resources:
   #   resources :products do
   #     resources :comments, :sales
