@@ -185,7 +185,7 @@ ol          { list-style-type: decimal; }
 #battery #center{
   background:url("/images/battery/green_repeat2.png") repeat-y scroll 0 0 transparent;
   bottom:117px;
-  height:100px;
+  height:223px;
   left:83px;
   position:inherit;
   width:205px;
