@@ -5,10 +5,11 @@
 
 <script type="text/javascript">
 //<![CDATA[
+
 setInterval(function() {
   jQuery.ajax({
     success:function(request){
-      var percentage = request/(1 * 1000);
+      var percentage = request/(dynos * 1000);
       jQuery("#time span").html(parseInt(request));
       if(percentage > 1){
         percentage = 1;
