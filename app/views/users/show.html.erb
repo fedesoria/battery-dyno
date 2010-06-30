@@ -21,7 +21,7 @@ setInterval(function() {
       };
       var percentage_number = (1 - percentage) * 100;
       percentage = (1 - percentage) * 223;
-      jQuery('#average span').html(percentage_number);
+      jQuery('#average span').html(percentage_number.toFixed(2));
       jQuery('#battery #center').css("height", percentage);
     },
     type:'get',
