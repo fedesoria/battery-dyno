@@ -4,6 +4,7 @@ class CreateRequests < ActiveRecord::Migration
       t.datetime    "date"
       t.float       "start"
       t.float       "stop"
+      t.integer     "dynos", :default => 1
       t.references  :user
       t.timestamps
     end
