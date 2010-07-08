@@ -12,21 +12,21 @@
 ActiveRecord::Schema.define(:version => 20100629024845) do
 
   create_table "requests", :force => true do |t|
-    t.datetime "date"
-    t.float    "start"
-    t.float    "stop"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "dynos"
+    t.timestamp "date"
+    t.float     "start"
+    t.float     "stop"
+    t.integer   "user_id"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
+    t.integer   "dynos",      :default => 1
   end
 
   create_table "users", :force => true do |t|
-    t.string   "name"
-    t.string   "account"
-    t.string   "pass"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string    "name"
+    t.string    "account"
+    t.string    "pass"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
   end
 
 end
