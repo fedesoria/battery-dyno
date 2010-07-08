@@ -137,9 +137,10 @@ ol          { list-style-type: decimal; }
 }
 
 
-.add_button img {
-  margin-left: -5px;
-  vertical-align: bottom;
+.add_button  {
+/*  margin-left: 10px;*/
+  margin-right: 5px;
+/*  vertical-align: bottom;*/
 }
 
 #battery {
@@ -216,4 +217,14 @@ ol          { list-style-type: decimal; }
 
 #dynos {
   margin-top: 30px;
+}
+
+
+#bottomColumn {
+  background: url(/images/divider-bottom.gif) repeat-x;
+}
+
+#placeholder, #overview {
+  margin: 0 auto;
+  margin-bottom: 40px;
 }

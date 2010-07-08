@@ -5,6 +5,10 @@
 
 <script type="text/javascript">
 //<![CDATA[
+<% @data_points = @user.get_data_points %>
+var d = <%= @data_points[0] %>
+var dd = <%= @data_points[1] %>
+
 
 setInterval(function() {
   jQuery.ajax({
@@ -32,38 +36,52 @@ setInterval(function() {
 </script>
 
 <% content_for :info do %>
-<p>
-  <b>Account:</b>
-  <%= @user.account %>
-</p>
+  <p>
+    <b>Account:</b>
+    <%= @user.account %>
+  </p>
 
-<p id="time">
-  <b>Average Request Time:</b>
-  <span>0</span>ms
-</p>
+  <p id="time">
+    <b>Average Request Time:</b>
+    <span>0</span>ms
+  </p>
 
-<p id="average">
-  <b>Dyno Capacity:</b>
-  <span>100</span>%
-</p>
+  <p id="average">
+    <b>Dyno Capacity:</b>
+    <span>100</span>%
+  </p>
 
-<p>
-  <b style="margin-right:12px;">Dynos:</b>
-  <span class="dynos">1
-  </span>
-  <a href="#" class="add_button">
-    <img src="/images/add_32.png" >
-  </a>
-</p>
+  <p>
+    <b style="margin-right:12px;">Dynos:</b>
+    <span class="dynos">1
+    </span>
+    <a href="#" class="add_button">
+      <img src="/images/plus.png" >
+    </a>
+    <a href="#" class="minus_button">
+      <img src="/images/minus.png" >
+    </a>
+  </p>
 
+  <%= link_to 'Edit', edit_user_path(@user) %> |
+  <%= link_to 'Back', users_path %>
 
+<% end %>
 
+<% content_for :bottom do %>
+  <div class="clear">
+    
+  </div>
+  
+  <div id="bottomColumn">
+    <div class="clear" style="padding-top:40px;">
 
-
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
-
+    </div>
+    
+    <div id="placeholder" style="width:600px;height:300px;"></div>
+    <div id="overview" style="width:400px;height:50px"></div>
+    
+  </div>
 <% end %>
 
 <div id="battery" >

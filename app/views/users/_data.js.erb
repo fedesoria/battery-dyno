@@ -1,0 +1,13 @@
+var d = [ <% @temp_date = @requests.first.date %>
+       <% @temp_time = @requests.first.start %>
+       <% @requests.each do |req| %>
+         <% unless @temp_date == req %>
+           <% if to_custom(@temp_date) == to_custom(req.date)%>
+             <% @temp_time += req.start %>
+           <% else %>
+             <%= "[#{req.date.to_i * 1000},#{@temp_time}]," %>
+             <% @temp_time = req.start %>
+             <% @temp_date = req.date %>
+           <% end %>
+         <% end %>
+       <% end %>];

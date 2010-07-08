@@ -1,4 +1,15 @@
 class UsersController < ApplicationController
+  
+  def data
+    @user = User.find(params[:id])
+    @requests = @user.requests.limit(500)
+    respond_to do |format|
+      format.js # data.erb.js
+      format.xml  { render :xml => @requests }
+    end
+  end
+  
+  
   # GET /users
   # GET /users.xml
   def index
@@ -14,7 +25,7 @@ class UsersController < ApplicationController
   # GET /users/1.xml
   def show
     @user = User.find(params[:id])
-
+    # @requests = @user.requests
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @user }
