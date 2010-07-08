@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   
   def get_data_points
     output_dynos = "["
-    small_req = requests.where({:date => (Time.now - 7.days)..Time.now}).select("date, start")
+    small_req = requests.where({:date => (Time.now - 7.days)..Time.now + 7.hours}).select("date, start")
     output_req  = "["
     temp_date = small_req.first.date
     temp_time = small_req.first.start
