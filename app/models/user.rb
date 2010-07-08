@@ -18,8 +18,12 @@ class User < ActiveRecord::Base
         temp_date = req.date
       end
     end
-    output_dynos = output_dynos.chop
-    output_req = output_req.chop
+    unless output_dynos.size == 1
+      output_dynos = output_dynos.chop
+    end
+    unless output_req.size == 1
+      output_req = output_req.chop
+    end
     output_dynos << "]"
     output_req << "]"
     return [output_req, output_dynos]
