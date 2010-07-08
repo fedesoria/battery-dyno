@@ -1,7 +1,6 @@
 class User < ActiveRecord::Base
   has_many :requests
   
-  
   def get_data_points
     output_dynos = "["
     small_req = requests.where({:date => (Time.now - 7.days)..Time.now + 7.hours}).select("date, start,dynos")
