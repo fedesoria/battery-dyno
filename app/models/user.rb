@@ -7,14 +7,17 @@ class User < ActiveRecord::Base
     output_req  = "["
     temp_date = small_req.first.date
     temp_time = small_req.first.start
+    temp_dynos = 1
     small_req.each do |req|
       if temp_date.strftime('%m-%d-%H-%M') == req.date.strftime('%m-%d-%H-%M')
         temp_time += req.start
+        temp_dynos = req.dynos
       else
-        output_req << "[#{req.date.to_i * 1000}, #{temp_time}],"
-        output_dynos << "[#{req.date.to_i * 1000}, #{req.dynos}],"
+        output_req << "[#{temp_date.to_i * 1000}, #{temp_time}],"
+        output_dynos << "[#{temp_date.to_i * 1000}, #{temp_dynos}],"
         temp_time = req.start
         temp_date = req.date
+        temp_dynos = req.dynos
       end
     end
     unless output_dynos.size == 1
