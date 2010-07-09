@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
         temp_time += req.start
         temp_dynos = req.dynos
       else
-        output_req << "[#{temp_date.to_i * 1000}, #{temp_time}],"
+        output_req << "[#{temp_date.to_i * 1000}, #{temp_time/60}],"
         output_dynos << "[#{temp_date.to_i * 1000}, #{temp_dynos}],"
         temp_time = req.start
         temp_date = req.date
