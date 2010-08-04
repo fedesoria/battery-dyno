@@ -1,6 +1,11 @@
 class User < ActiveRecord::Base
   has_many :requests
   
+  def perform
+    Notifier.alert_email(user, percentage * 100).deliver
+  end
+  
+  
   def self.alert_on_red(id)
     user = User.find(id)
     if user.email
