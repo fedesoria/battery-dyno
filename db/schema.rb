@@ -9,24 +9,39 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100629024845) do
+ActiveRecord::Schema.define(:version => 20100804151052) do
+
+  create_table "delayed_jobs", :force => true do |t|
+    t.integer  "priority",   :default => 0
+    t.integer  "attempts",   :default => 0
+    t.text     "handler"
+    t.text     "last_error"
+    t.datetime "run_at"
+    t.datetime "locked_at"
+    t.datetime "failed_at"
+    t.text     "locked_by"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "requests", :force => true do |t|
-    t.timestamp "date"
-    t.float     "start"
-    t.float     "stop"
-    t.integer   "user_id"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
-    t.integer   "dynos",      :default => 1
+    t.datetime "date"
+    t.float    "start"
+    t.float    "stop"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "dynos",      :default => 1
   end
 
   create_table "users", :force => true do |t|
-    t.string    "name"
-    t.string    "account"
-    t.string    "pass"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
+    t.string   "name"
+    t.string   "account"
+    t.string   "pass"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "email"
+    t.date     "email_times"
   end
 
 end

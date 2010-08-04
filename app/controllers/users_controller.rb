@@ -10,6 +10,14 @@ class UsersController < ApplicationController
   end
   
   
+  def save_email
+    @user = User.find(params[:id])
+    @user.email = params[:email]
+    @user.save
+    render :nothing => true
+  end
+  
+  
   # GET /users
   # GET /users.xml
   def index

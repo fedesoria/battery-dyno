@@ -31,7 +31,24 @@ setInterval(function() {
     type:'get',
     url:'/heroku_time?id=<%= @user.id %>'
     })
-  }, 10 * 1000)
+  }, 10 * 1000);
+  
+  $(document).ready(function() {
+    $("a.button").click( function(){
+      var temp_email = $('#email').val();
+      $.post('/users/<%= @user.id %>/email_change', {email: temp_email}, function(data) {
+        $("#email_data").html(temp_email);
+      });
+      }
+      );
+      
+      $("#email_edit").click( function() {
+        $("#email_info").hide();
+        $("#email_form").show();
+      });
+  });
+  
+  
 //]]>
 </script>
 
@@ -53,7 +70,7 @@ setInterval(function() {
 
   <p>
     <b style="margin-right:12px;">Dynos:</b>
-    <span class="dynos">1
+    <span class="dynos"><%= @user.requests.last.dynos %>
     </span>
     <a href="#" class="add_button">
       <img src="/images/plus.png" >
@@ -61,6 +78,25 @@ setInterval(function() {
     <a href="#" class="minus_button">
       <img src="/images/minus.png" >
     </a>
+  </p>
+
+  <p id="email_field">
+    <b>Email for alerts</b>
+    <div id="email_data">
+      <% if @user.email %>
+        <div id="email_info">
+          <%= @user.email %>
+          <a href="#" id="email_edit">Edit</a>
+        </div>
+        <div id="email_form" style="display:none;">
+      <% else %>
+        <div id="email_form">
+      <% end %>
+          <input type="text" name="email" value="" id="email">
+          <a href="#" class="button">Save</a>
+      </div>  
+    </div>
+
   </p>
 
   <%= link_to 'Edit', edit_user_path(@user) %> |

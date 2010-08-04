@@ -28,6 +28,9 @@ Dynobattery::Application.routes.draw do |map|
   #       get :sold
   #     end
   #   end
+  
+  match '/users/:id/email_change' => 'users#save_email'
+  
   match '/heroku', :to => RequestsCall
   
   match '/heroku_time', :to => TimeRequest
