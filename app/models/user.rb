@@ -1,21 +1,20 @@
 class User < ActiveRecord::Base
   has_many :requests
   
-  def perform
-    Notifier.alert_email(user, percentage * 100).deliver
-  end
+  # def perform
+  #   Notifier.alert_email(user, percentage * 100).deliver
+  # end
   
   
-  def self.alert_on_red(id)
-    user = User.find(id)
-    if user.email
-      dynos = user.requests.last.dynos
-      requests = user.requests.where(["date > ?",Time.now - 1.minute])
+  def alert_on_red
+    if email
+      dynos = requests.last.dynos
+      requests = requests.where(["date > ?",Time.now - 1.minute])
       total_time = 0
       requests.map { |x| total_time += x.start }
       percentage = (total_time/60 * 1000)/(dynos * 1000)
       if percentage > 0.80
-        Notifier.alert_email(user, percentage * 100).deliver
+        Notifier.alert_email(self, percentage * 100).deliver
       end
     end
   end
