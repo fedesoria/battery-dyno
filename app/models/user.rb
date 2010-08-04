@@ -8,11 +8,11 @@ class User < ActiveRecord::Base
   
   def alert_on_red
     if email
-      dynos = requests.last.dynos
-      requests = requests.where(["date > ?",Time.now - 1.minute])
+      @dynos = requests.last.dynos
+      @requests = requests.where(["date > ?",Time.now - 1.minute])
       total_time = 0
-      requests.map { |x| total_time += x.start }
-      percentage = (total_time/60 * 1000)/(dynos * 1000)
+      @requests.map { |x| total_time += x.start }
+      percentage = (total_time/60 * 1000)/(@dynos * 1000)
       if percentage > 0.80
         Notifier.alert_email(self, percentage * 100).deliver
       end
