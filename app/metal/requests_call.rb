@@ -16,6 +16,7 @@ class RequestsCall
         else
           Request.create(:user_id => user.id, :date => @params["date"], :start => @params["time"])
         end
+      user.send_later(:alert_on_red)  
       [200, {"Content-Type" => "text/html"}, ["OK"]]
     else
       [404, {"Content-Type" => "text/html"}, ["Not Found"]]
