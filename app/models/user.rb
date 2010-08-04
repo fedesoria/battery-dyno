@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
       requests.map { |x| total_time += x.start }
       percentage = (total_time/60 * 1000)/(dynos * 1000)
       if percentage > 0.80
-        Notifier.alert_email(user, percentage).deliver
+        Notifier.alert_email(user, percentage * 100).deliver
       end
     end
   end
