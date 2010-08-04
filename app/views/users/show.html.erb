@@ -72,12 +72,12 @@ setInterval(function() {
     <b style="margin-right:12px;">Dynos:</b>
     <span class="dynos"><%= @user.requests.last.dynos %>
     </span>
-    <a href="#" class="add_button">
+    <!-- <a href="#" class="add_button">
       <img src="/images/plus.png" >
     </a>
     <a href="#" class="minus_button">
       <img src="/images/minus.png" >
-    </a>
+    </a> -->
   </p>
 
   <p id="email_field">
@@ -99,27 +99,26 @@ setInterval(function() {
 
   </p>
 
-  <%= link_to 'Edit', edit_user_path(@user) %> |
-  <%= link_to 'Back', users_path %>
+
 
 <% end %>
-
-<% content_for :bottom do %>
-  <div class="clear">
+<% if @user.id == 0 %>
+  <% content_for :bottom do %>
+    <div class="clear">
     
-  </div>
-  
-  <div id="bottomColumn">
-    <div class="clear" style="padding-top:40px;">
-
     </div>
-    
-    <div id="placeholder" style="width:600px;height:300px;"></div>
-    <div id="overview" style="width:400px;height:50px"></div>
-    
-  </div>
-<% end %>
+  
+    <div id="bottomColumn">
+      <div class="clear" style="padding-top:40px;">
 
+      </div>
+    
+      <div id="placeholder" style="width:600px;height:300px;"></div>
+      <div id="overview" style="width:400px;height:50px"></div>
+    
+    </div>
+  <% end %>
+<% end %>
 <div id="battery" >
     <div id="top_battery">
       
