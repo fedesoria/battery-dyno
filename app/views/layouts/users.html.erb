@@ -17,7 +17,7 @@
 	<!--[if IE]><script language="javascript" type="text/javascript" src="/javascripts/excanvas.min.js"></script><![endif]-->
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
 	<%= javascript_include_tag "application", "jquery.flot", "jquery.flot.selection", "jquery.flot.threshold" %>
-	<% if @user.id == 0 %>
+	<% if false %>
 	  <%= javascript_include_tag "graph" %>
 	<% end %>
   <%= csrf_meta_tag %>

@@ -29,6 +29,9 @@ Dynobattery::Application.routes.draw do |map|
   #     end
   #   end
   
+  match '/heroku/resources' => 'heroku#create', :conditions => { :method => :post}
+  match '/heroku/resources/:id' => 'heroku#destroy', :conditions => { :method => :delete}
+  
   match '/users/:id/email_change' => 'users#save_email'
   
   match '/heroku', :to => RequestsCall
