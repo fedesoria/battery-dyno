@@ -13,7 +13,7 @@
     "config_vars": [
       "DYNOBATTERY_URL"
     ],
-    "production": "http://dyno-battery.heroku.com",
+    "production": "https://dyno-battery.heroku.com",
     "test": "http://localhost:3000/",
     "username": "heroku",
     "password": "OBBxxyoDE7HyEIAY",

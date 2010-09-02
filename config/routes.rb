@@ -33,13 +33,15 @@ Dynobattery::Application.routes.draw do |map|
   match '/heroku/resources/:id' => 'heroku#login', :conditions => { :method => :get}
   match '/heroku/resources/:id' => 'heroku#destroy', :conditions => { :method => :delete}
   
-  match '/heroku/dashboard' => 'heroku#dashboard'
   
   match '/users/:id/email_change' => 'users#save_email'
   
   match '/heroku', :to => RequestsCall
   
   match '/heroku_time', :to => TimeRequest
+  
+  match '/heroku/dashboard' => 'heroku#dashboard'
+  
   
   # Sample resource route with sub-resources:
   #   resources :products do

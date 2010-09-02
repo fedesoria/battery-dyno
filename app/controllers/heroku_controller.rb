@@ -1,10 +1,8 @@
-require 'heroku/nav'
-
 class HerokuController < UsersController
   before_filter :authenticate_heroku, :except => [:login, :dashboard]
   
   def login
-    pre_token = params[:id] + ':' + HEROKU_SSO_SALT + ':' + params[:timestamp]
+    pre_token = params[:id].to_s + ':' + HEROKU_SSO_SALT + ':' + params[:timestamp]
     token = Digest::SHA1.hexdigest(pre_token).to_s
     
     if token != params[:token] or params[:timestamp].to_i < (Time.now - 2*60).to_i
