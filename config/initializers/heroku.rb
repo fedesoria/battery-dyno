@@ -1,0 +1,1 @@
+HEROKU_SSO_SALT = "J9L5x1Ho1dxzOoGq"

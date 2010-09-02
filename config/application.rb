@@ -6,6 +6,14 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env) if defined?(Bundler)
 
+
+# require 'heroku/nav'
+# HEROKU_NAV = Heroku::Nav::Header.html
+
+require 'rest_client'
+HEROKU_NAV = RestClient.get('http://nav.heroku.com/v1/providers/header').to_s
+
+
 module Dynobattery
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.

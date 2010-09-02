@@ -1,5 +1,7 @@
+require 'heroku/nav'
+
 class HerokuController < UsersController
-  before_filter :authenticate_heroku
+  before_filter :authenticate_heroku, :except => [:login, :dashboard]
   
   def login
     pre_token = params[:id] + ':' + HEROKU_SSO_SALT + ':' + params[:timestamp]
@@ -21,7 +23,7 @@ class HerokuController < UsersController
   end
 
   def dashboard
-    render :text => "Dashboard IN"
+    # render :text => "Dashboard IN"
   end
 
 

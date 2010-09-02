@@ -3,6 +3,8 @@ source 'http://rubygems.org'
 gem 'rails', '3.0.0.rc'
 gem 'sinatra'
 
+gem 'heroku-nav'
+
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 

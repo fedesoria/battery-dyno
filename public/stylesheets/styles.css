@@ -85,7 +85,7 @@ input[type='submit']:hover { background-position: 0 -30px; }*/
 h1,h2,h3,h4,h5,h6 { font-family: "Droid Custom", Georgia, Garamond, serif; font-weight: normal; color: #2d2d2d; }
 
 /* BEGIN STYLES FOR THE LARGE ERROR MESSAGE */
-h1 {
+#wrapper h1 {
 	font-size: 128px;
 	line-height: 128px;
 	letter-spacing: -5px;
@@ -95,8 +95,8 @@ h1 {
 	top: 265px;
 	opacity: .04;
 }
-h1:hover { opacity: .1; }
-h1 span {
+#wrapper h1:hover { opacity: .1; }
+#wrapper h1 span {
 	font-size: 28px;
 	line-height: 28px;	
 	font-weight: bold;
