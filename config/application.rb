@@ -6,12 +6,9 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env) if defined?(Bundler)
 
+require 'heroku/nav'
+HEROKU_NAV = Heroku::Nav::Provider.html
 
-# require 'heroku/nav'
-# HEROKU_NAV = Heroku::Nav::Header.html
-
-require 'rest_client'
-HEROKU_NAV = RestClient.get('http://nav.heroku.com/v1/providers/header').to_s
 
 
 module Dynobattery
@@ -19,7 +16,11 @@ module Dynobattery
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
+    
 
+
+    # require 'rest_client'
+    # HEROKU_NAV = RestClient.get('http://nav.heroku.com/v1/providers/header').to_s
     # Add additional load paths for your own custom dirs
     # config.load_paths += %W( #{config.root}/extras )
 
