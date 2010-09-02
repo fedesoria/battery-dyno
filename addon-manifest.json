@@ -16,6 +16,7 @@
     "production": "http://dyno-battery.heroku.com",
     "test": "http://localhost:3000/",
     "username": "heroku",
-    "password": "Wtn8OwjlMHJwC4oL"
+    "password": "OBBxxyoDE7HyEIAY",
+    "sso_salt": "J9L5x1Ho1dxzOoGq"
   }
 }
