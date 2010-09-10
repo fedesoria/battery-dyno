@@ -71,7 +71,7 @@ setInterval(function() {
   <p>
     <b style="margin-right:12px;">Dynos:</b>
     <span class="dynos">
-      <% unless @user.requests.last %>
+      <% unless @user.requests.last.nil? %>
         <%= @user.requests.last.dynos %>
       <% else %>
         N/A
