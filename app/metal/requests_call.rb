@@ -10,7 +10,7 @@ class RequestsCall
     @params = req.params
     
     if env["REQUEST_METHOD"] == "GET"
-      [200, {"Content-Type" => "text/html"}, [req.ip]]
+      [200, {"Content-Type" => "text/html"}, [env.to_yaml]]
       
     
     elsif env["PATH_INFO"] =~ /^\/heroku/ && env["REQUEST_METHOD"] == "POST" && user = User.find_by_name(@params["name"])
