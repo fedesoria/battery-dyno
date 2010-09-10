@@ -9,7 +9,11 @@ class RequestsCall
     req = Rack::Request.new(env)
     @params = req.params
     
-    if env["PATH_INFO"] =~ /^\/heroku/ && env["REQUEST_METHOD"] == "POST" && user = User.find_by_name(@params["name"])
+    if env["REQUEST_METHOD"] == "GET"
+      [200, {"Content-Type" => "text/html"}, [req.ip]]
+      
+    
+    elsif env["PATH_INFO"] =~ /^\/heroku/ && env["REQUEST_METHOD"] == "POST" && user = User.find_by_name(@params["name"])
           
         if @params["dynos"]
           Request.create(:user_id => user.id, :date => @params["date"], :start => @params["time"], :dynos => @params[:dyno])
