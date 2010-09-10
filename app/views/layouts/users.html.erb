@@ -23,7 +23,7 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
-  <%= yield(:heroku) %>
+  <%= HEROKU_NAV.html_safe %>
 	<div id="wrapper">
 		<div id="bg-top"></div>
 		<div id="contentWrap">
