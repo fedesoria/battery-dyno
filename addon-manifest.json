@@ -7,6 +7,12 @@
       "name": "Basic",
       "price": "0",
       "price_unit": "month"
+    },
+    {
+      "id": "pro",
+      "name": "Pro",
+      "price": "1200",
+      "price_unit": "month"
     }
   ],
   "api": {

@@ -1,20 +1,34 @@
-Your Add-on
+DynoBattery
 ===========
-(One or two sentence overview of your add-on.)
+DynoBattery is a service provided by [dospuntocero][20] to track the consumption of dynos usage.
 
-Local setup
+Install the add-on
 -----------
-(Short description of how to set things up in the local environment, such as installing necessary gems or modifying the app.)
 
-(You may want subsections for using from Rails vs. using from Sinatra or other Ruby/Rack apps, if applicable.)
+    $ heroku addons:add dynobattery
 
-Further reading:
 
-* (Link to external docs)[http://somedocs]
-* (Another link to external docs)[http://otherdocs]
+Install the gem
+-----------
 
-Deploying to Heroku
--------------------
-To use (add-on) on Heroku, install the (add-on) add-on:
+    gem 'dynobattery', '~> 0.1.5'
+    
 
-    $ heroku addons:add (add-on)
+Configure DynoBattery
+-----------
+You will need to add the middleware into environment/production.rb
+
+    config.middleware.use "DynoBattery"
+
+If you want to be able to automatically scale your application you will need to add a dynobattery_config.rb file to your /config/initializers folder:
+
+    DYNO_USER = "email_used_for_heroku@test.com"
+    DYNO_PASSWORD = "password"
+    DYNO_DOMAIN = "name of your app"
+    
+For DYNO_DOMAIN it would be what you have as a subdomain in Heroku, i.e. http://DYNO-DOMAIN.heroku.com
+
+
+
+    
+[20]: http://dospuntocero.com.mx "dospuntocero"
