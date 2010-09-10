@@ -1,3 +1,5 @@
+# HTTP_X_HEROKU_DYNOS_IN_USE: "1"
+# HTTP_X_HEROKU_QUEUE_WAIT_TIME: "0"
 
 # Allow the metal piece to run in isolation
 require File.expand_path('../../../config/environment',  __FILE__) unless defined?(Rails)
@@ -10,7 +12,7 @@ class RequestsCall
     @params = req.params
     
     if env["REQUEST_METHOD"] == "GET"
-      [200, {"Content-Type" => "text/html"}, [env.to_yaml]]
+      [200, {"Content-Type" => "text/html"}, [env["HTTP_X_HEROKU_DYNOS_IN_USE"]]]
       
     
     elsif env["PATH_INFO"] =~ /^\/heroku/ && env["REQUEST_METHOD"] == "POST" && user = User.find_by_name(@params["name"])
