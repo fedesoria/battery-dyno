@@ -70,7 +70,12 @@ setInterval(function() {
 
   <p>
     <b style="margin-right:12px;">Dynos:</b>
-    <span class="dynos"><%= @user.requests.last.dynos %>
+    <span class="dynos">
+      <% unless @user.requests.last %>
+        <%= @user.requests.last.dynos %>
+      <% else %>
+        N/A
+      <% end %>
     </span>
     <!-- <a href="#" class="add_button">
       <img src="/images/plus.png" >
