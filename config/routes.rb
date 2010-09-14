@@ -1,7 +1,7 @@
 
 Dynobattery::Application.routes.draw do |map|
   
-  resources :users
+  resources :users, :except => :index
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
