@@ -32,21 +32,8 @@ setInterval(function() {
     url:'/heroku_time?id=<%= @user.id %>'
     })
   }, 10 * 1000);
+
   
-  $(document).ready(function() {
-    $("a.button").click( function(){
-      var temp_email = $('#email').val();
-      $.post('/users/<%= @user.id %>/email_change', {email: temp_email}, function(data) {
-        $("#email_data").html(temp_email);
-      });
-      }
-      );
-      
-      $("#email_edit").click( function() {
-        $("#email_info").hide();
-        $("#email_form").show();
-      });
-  });
   
   
 //]]>
@@ -98,7 +85,10 @@ setInterval(function() {
         <div id="email_form">
       <% end %>
           <input type="text" name="email" value="" id="email">
-          <a href="#" class="button">Save</a>
+          <%= hidden_field_tag 'user_id', @user.id %>
+          <br><br>
+          <a href="#" class="button" id="save">Save</a>
+          <a href="#" class="secondary button" id="cancel">Cancel</a>
       </div>  
     </div>
 

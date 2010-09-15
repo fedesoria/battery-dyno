@@ -20,6 +20,9 @@ You will need to add the middleware into environment/production.rb
 
     config.middleware.use "DynoBattery"
 
+
+Auto Scale
+-----------
 If you want to be able to automatically scale your application you will need to add a dynobattery_config.rb file to your /config/initializers folder:
 
     DYNO_USER = "email_used_for_heroku@test.com"

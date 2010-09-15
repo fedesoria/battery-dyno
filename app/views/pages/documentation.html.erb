@@ -1,0 +1,30 @@
+
+<p>DynoBattery is a service provided by <a href="http://dospuntocero.com.mx" title="dospuntocero">dospuntocero</a> to track the consumption of dynos usage.</p>
+
+<h2 id="install_the_add_on">Install the add-on</h2>
+
+<pre><code>$ heroku addons:add dynobattery
+</code></pre>
+
+<h2 id="install_the_gem">Install the gem</h2>
+
+<pre><code>gem 'dynobattery', '~&gt; 0.1.5'
+</code></pre>
+
+<h2 id="configure_dynobattery">Configure DynoBattery</h2>
+
+<p>You will need to add the middleware into environment/production.rb</p>
+
+<pre><code>config.middleware.use "DynoBattery"
+</code></pre>
+
+<h2 id="auto_scale">Auto Scale</h2>
+
+<p>If you want to be able to automatically scale your application you will need to add a dynobattery_config.rb file to your /config/initializers folder:</p>
+
+<pre><code>DYNO_USER = "email_used_for_heroku@test.com"
+DYNO_PASSWORD = "password"
+DYNO_DOMAIN = "name of your app"
+</code></pre>
+
+<p>For DYNO_DOMAIN it would be what you have as a subdomain in Heroku, i.e. http://DYNO-DOMAIN.heroku.com</p>
