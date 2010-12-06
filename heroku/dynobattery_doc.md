@@ -33,5 +33,10 @@ For DYNO_DOMAIN it would be what you have as a subdomain in Heroku, i.e. http://
 
 
 
+How it Works
+-----------
+We monitor your app's performance and we display it on a manner that is easy to understand. When your dyno capacity goes below the 20% threshold the battery goes red and an email is sent to your address telling you that your app is running out of dyno capacity.
+
+Note: We will only send 1 email every 20 minutes.
     
 [20]: http://dospuntocero.com.mx "dospuntocero"
