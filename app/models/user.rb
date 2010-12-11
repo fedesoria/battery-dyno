@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
       percentage = (total_time/60 * 1000)/(@dynos * 1000)
       if percentage > 0.80
         unless email_times + 20.minutes > Time.now
-          Notifier.alert_email(self, (percentage * 100).round).deliver
+          Notifier.alert_email(self, (100 - (percentage * 100)).round).deliver
         end
         email_times = Time.now
       end

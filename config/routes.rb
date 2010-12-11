@@ -6,7 +6,8 @@ Dynobattery::Application.routes.draw do |map|
   match '/about' => 'pages#about'
   match '/contact' => 'pages#contact'
   
-  resources :users, :except => :index
+  resources :users
+  # , :except => :index
   
   post    '/heroku/resources' => 'heroku#create'
   get     '/heroku/resources/:id' => 'heroku#login'
