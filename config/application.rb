@@ -45,8 +45,8 @@ module Dynobattery
     #   g.template_engine :erb
     #   g.test_framework  :test_unit, :fixture => true
     # end
-
+    config.encoding = "utf-8"
     # Configure sensitive parameters which will be filtered from the log file.
-    config.filter_parameters << :password
+    config.filter_parameters += [:password]
   end
 end
